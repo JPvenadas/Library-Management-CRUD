@@ -12,18 +12,16 @@
         <a class="navbar-brand h1" href="#">School Library Management</a>
       </div>
       <ul class="nav col-4">
+        <li class="nav-item">
+            <a class="nav-link text-light" href="../index.php">Books</a>
+        </li>
         <li class="nav-item bg-light">
-            <a class="nav-link text-primary" href="#">Books</a>
+            <a class="nav-link text-primary" href="#">Students</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-light" href="Students/Students.php">Students</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-light" href="transactions/transactions.php">Transactions</a>
+            <a class="nav-link text-light" href="../transactions/transactions.php">Transactions</a>
         </li>
       </ul>
 
   </div>
 </nav>
-
-  
