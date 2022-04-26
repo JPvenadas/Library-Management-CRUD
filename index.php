@@ -1,5 +1,6 @@
 <?php
- include("addbooks.php");
+ require_once('Functions.php');
+ addbook();
  include('connect.php');
  $command = "select * from TBL_books";
  $result = mysqli_query($conn, $command);
