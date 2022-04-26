@@ -1,7 +1,7 @@
 <?php
  require_once('Functions.php');
  addbook();
- include('connect.php');
+ $conn = Opencon();
  $command = "select * from TBL_books";
  $result = mysqli_query($conn, $command);
  $books = mysqli_fetch_all($result, MYSQLI_ASSOC);

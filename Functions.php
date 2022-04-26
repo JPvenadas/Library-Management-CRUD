@@ -1,8 +1,16 @@
 <?php
-   function addbook(){
 
+    function Opencon(){
+        $conn = mysqli_connect('127.0.0.2:3307','root','','db_library');
+        if(!$conn){
+         echo "Connection Error" . mysqli_error;
+        }
+        return $conn;
+    }
+
+   function addbook(){
     if(isset($_POST['Add'])){
-        include("connect.php");
+        $conn =  Opencon();
         $bookname = $_POST['BookName'];
         $author = $_POST['Author'];
         $stocks = $_POST['Stocks'];
@@ -12,7 +20,6 @@
         }
         mysqli_close($conn);
        }
-       
    }
    
    
