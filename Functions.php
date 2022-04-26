@@ -22,5 +22,16 @@
        }
    }
    
+   Function deleteBook(){
+    if(isset($_POST['Delete'])){
+        $conn =  Opencon();
+        $ID = $_POST['BookID'];
+        $command = "delete from TBL_books where BookID='$ID'";
+        if(mysqli_query($conn,$command)){
+            header('Location: index.php');
+        }
+        mysqli_close($conn);
+       }
+   }
    
 ?>

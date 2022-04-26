@@ -1,6 +1,7 @@
 <?php
- require_once('Books/Functions.php');
+ require_once('Functions.php');
  addbook();
+ deleteBook();
  $conn = Opencon();
  $command = "select * from TBL_books";
  $result = mysqli_query($conn, $command);
@@ -29,9 +30,21 @@
       <td><?php echo $book['BookName']?></td>
       <td><?php echo $book['Author']?></td>
       <td><?php echo $book['Stocks']?></td>
-      <td>
-        <Button class="btn text-light bg-primary"><i class="bi bi-trash2-fill"></i></Button>
-        <Button class="btn text-light bg-danger"><i class="bi bi-pen-fill"></i></Button>
+      <td style="display:flex; flex-direction: row">
+        
+      
+      <Button class="btn text-light bg-primary" data-bs-toggle="modal" data-bs-target="#editBook" data-bs-whatever="@mdo">
+        <i class="bi bi-trash2-fill"></i>
+      </Button>
+
+        <!-- This is the delete Button -->
+        <Form action="index.php" method="POST">
+          <input type="hidden" name="BookID" value="<?php echo $book['BookID']?>">
+          <Button type="submit" name="Delete" class="btn mx-1 text-light bg-danger">
+            <i class="bi bi-trash2-fill"></i>
+          </Button>
+        </Form>
+
       </td>
     </tr>
     <?php }?>
