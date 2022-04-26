@@ -1,5 +1,5 @@
 <?php
- require_once('Functions.php');
+ require_once('Books/Functions.php');
  addbook();
  $conn = Opencon();
  $command = "select * from TBL_books";
@@ -9,9 +9,9 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
- <?php include('header.php') ?>
+ <?php include('Books/header.php') ?>
  <div class="container p-4">
- <?php include('modal.php')?>
+ <?php include('Books/modal.php')?>
  <table class="table">
   <thead class="bg-secondary text-light">
     <tr>
