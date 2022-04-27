@@ -1,23 +1,49 @@
 <?php
-
+    require_once('../Functions.php');
+    $students = readStudents()
 ?>
 <!DOCTYPE html>
     <html lang="en">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https:/ /cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script>
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
-</script>
 
  <?php include('Header.php') ?>
  <div class="container p-4">
  <?php include("addModal.php")?>
+
+ <table class="table">
+  <thead class="bg-secondary text-light">
+    <tr>
+      <th scope="col">Student ID</th>
+      <th scope="col">Student Name</th>
+      <th scope="col">Year Section</th>
+      <th scope="col">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($students as $student){?>
+      <tr>
+      <td><?php echo $student['StudentID']?></td>
+      <td><?php echo $student['StudentName']?></td>
+      <td><?php echo $student['YearSection']?></td>
+      <td style="display:flex; flex-direction: row">
+        
+      <Button class="btn text-light bg-primary" data-bs-toggle="modal" data-bs-target="#editstudent" data-bs-whatever="@mdo">
+      <i class="bi bi-pen-fill"></i>
+      </Button>
+
+        <!-- This is the delete Button -->
+        <Form action="Students.php" method="POST">
+          <input type="hidden" name="studentID" value="<?php echo $student['StudentID']?>">
+          <Button type="submit" name="Delete" class="btn mx-1 text-light bg-danger">
+            <i class="bi bi-trash2-fill"></i>
+          </Button>
+        </Form>
+
+      </td>
+    </tr>
+    <?php }?>
+  </tbody>
+</table>
+
  </div>
 </body>
 </html>

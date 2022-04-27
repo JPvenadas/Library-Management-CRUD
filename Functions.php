@@ -48,4 +48,15 @@
         mysqli_close($conn);
        }
    }
+
+
+   Function readStudents(){
+    $conn = Opencon();
+    $command = "select * from TBL_students";
+    $result = mysqli_query($conn, $command);
+    $students = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    mysqli_close($conn);
+    return $students;
+   }
+
 ?>
