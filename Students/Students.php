@@ -5,8 +5,9 @@
 ?>
 <!DOCTYPE html>
     <html lang="en">
-
  <?php include('Header.php') ?>
+ <?php include('editModal.php') ?>
+
  <div class="container p-4">
  <?php include("addModal.php")?>
 
@@ -27,13 +28,16 @@
       <td><?php echo $student['YearSection']?></td>
       <td style="display:flex; flex-direction: row">
         
-      <Button class="btn text-light bg-primary" data-bs-toggle="modal" data-bs-target="#editstudent" data-bs-whatever="@mdo">
+      <Button class="btn text-light bg-primary" data-bs-toggle="modal" data-bs-target="#editStudent" data-bs-whatever="@mdo"
+      onclick="
+      attachcontent('<?php echo $student['StudentID']?>','<?php echo $student['StudentName']?>','<?php echo $student['YearSection']?>')
+      ">
       <i class="bi bi-pen-fill"></i>
       </Button>
 
         <!-- This is the delete Button -->
         <Form action="Students.php" method="POST">
-          <input type="hidden" name="StudentID" value="<?php echo $student['StudentID']?>">
+          <input type="hidden" name="tudentID" value="<?php echo $student['StudentID']?>">
           <Button type="submit" name="DeleteStudent" class="btn mx-1 text-light bg-danger">
             <i class="bi bi-trash2-fill"></i>
           </Button>
@@ -44,7 +48,13 @@
     <?php }?>
   </tbody>
 </table>
-
- </div>
+</div>
+ <script>
+  const attachcontent= (id, Name, YearSec) => {
+    document.getElementById('Update_StudentID').value = id
+    document.getElementById('Update_StudentName').value = Name
+    document.getElementById('Update_YearSection').value = YearSec
+  }
+</script>
 </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 <div class="modal fade" id="editBook" tabindex="-1" aria-labelledby="editBookLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
