@@ -71,6 +71,15 @@
         }
         mysqli_close($conn);
     }
+    if(isset($_POST['DeleteStudent'])){
+        $conn =  Opencon();
+        $ID = $_POST['StudentID'];
+        $command = "delete from TBL_students where StudentID='$ID'";
+        if(mysqli_query($conn,$command)){
+            header('Location: Students.php');
+        }
+        mysqli_close($conn);
+    }
    }
 
 ?>

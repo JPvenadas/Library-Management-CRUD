@@ -33,8 +33,8 @@
 
         <!-- This is the delete Button -->
         <Form action="Students.php" method="POST">
-          <input type="hidden" name="studentID" value="<?php echo $student['StudentID']?>">
-          <Button type="submit" name="Delete" class="btn mx-1 text-light bg-danger">
+          <input type="hidden" name="StudentID" value="<?php echo $student['StudentID']?>">
+          <Button type="submit" name="DeleteStudent" class="btn mx-1 text-light bg-danger">
             <i class="bi bi-trash2-fill"></i>
           </Button>
         </Form>
