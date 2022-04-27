@@ -1,13 +1,7 @@
 <?php
  require_once('Functions.php');
- UpdateBook();
- addbook();
- deleteBook();
- $conn = Opencon();
- $command = "select * from TBL_books";
- $result = mysqli_query($conn, $command);
- $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
- mysqli_close($conn)
+ BookChanges();
+ $books = readBooks();
 ?>
 <!DOCTYPE html>
 <html lang="en">

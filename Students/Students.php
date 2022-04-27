@@ -1,6 +1,7 @@
 <?php
     require_once('../Functions.php');
-    $students = readStudents()
+    StudentChanges();
+    $students = readStudents();
 ?>
 <!DOCTYPE html>
     <html lang="en">

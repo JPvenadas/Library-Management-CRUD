@@ -9,7 +9,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="index.php" method="POST">
+        <form action="Students.php" method="POST">
           <div class="mb-3">
             <input required name="StudentName" placeholder="Student fullName" type="text" class="form-control" id="StudentName">
           </div>
