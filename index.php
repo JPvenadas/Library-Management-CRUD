@@ -14,7 +14,7 @@
  <?php include('Books/header.php') ?>
  <?php require("Books/editModal.php")?>
  <div class="container p-4">
- <?php include('Books/modal.php')?>
+ <?php include('Books/addModal.php')?>
  <table class="table">
   <thead class="bg-secondary text-light">
     <tr>
