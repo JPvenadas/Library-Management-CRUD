@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="index.php" method="POST">
+        <form action="Students.php" method="POST">
         <div class="mb-3">
             <input name="Update_StudentID"  placeholder="Book ID" type="hidden" class="form-control" id="Update_StudentID">
           </div>

@@ -20,10 +20,10 @@
     Function BookChanges(){
         if(isset($_POST['Add'])){
             $conn =  Opencon();
-            $bookname = $_POST['BookName'];
-            $author = $_POST['Author'];
+            $StudentName = $_POST['StudentName'];
+            $YearSection = $_POST['YearSection'];
             $stocks = $_POST['Stocks'];
-            $command = "insert into TBL_books(BookName, Author, Stocks) values('$bookname','$author','$stocks')";
+            $command = "insert into TBL_books(StudentName, YearSection, Stocks) values('$StudentName','$YearSection','$stocks')";
             if(mysqli_query($conn,$command)){
                 header('Location: index.php');
             }
@@ -31,8 +31,8 @@
         }
         if(isset($_POST['Delete'])){
             $conn =  Opencon();
-            $ID = $_POST['BookID'];
-            $command = "delete from TBL_books where BookID='$ID'";
+            $ID = $_POST['StudentID'];
+            $command = "delete from TBL_books where StudentID='$ID'";
             if(mysqli_query($conn,$command)){
                 header('Location: index.php');
             }
@@ -40,11 +40,11 @@
         }
         if(isset($_POST['Update'])){
             $conn =  Opencon();
-            $bookID = $_POST['Update_BookID'];
-            $bookname = $_POST['Update_BookName'];
-            $author = $_POST['Update_Author'];
+            $StudentID = $_POST['Update_StudentID'];
+            $StudentName = $_POST['Update_StudentName'];
+            $YearSection = $_POST['Update_YearSection'];
             $stocks = $_POST['Update_Stocks'];
-            $command = "update TBL_books set BookName='$bookname', Author='$author', Stocks='$stocks' where BookID = '$bookID'";
+            $command = "update TBL_books set StudentName='$StudentName', YearSection='$YearSection', Stocks='$stocks' where StudentID = '$StudentID'";
             if(mysqli_query($conn,$command)){
                 header('Location: index.php');
             }
@@ -61,25 +61,36 @@
     return $students;
    }
    Function StudentChanges(){
-    if(isset($_POST['AddStudent'])){
-        $conn =  Opencon();
-        $studentname = $_POST['StudentName'];
-        $yearsection = $_POST['YearSection'];
-        $command = "insert into TBL_students(StudentName, YearSection) values('$studentname','$yearsection')";
-        if(mysqli_query($conn,$command)){
-            header('Location: Students.php');
+        if(isset($_POST['AddStudent'])){
+            $conn =  Opencon();
+            $studentname = $_POST['StudentName'];
+            $yearsection = $_POST['YearSection'];
+            $command = "insert into TBL_students(StudentName, YearSection) values('$studentname','$yearsection')";
+            if(mysqli_query($conn,$command)){
+                header('Location: Students.php');
+            }
+            mysqli_close($conn);
         }
-        mysqli_close($conn);
-    }
-    if(isset($_POST['DeleteStudent'])){
-        $conn =  Opencon();
-        $ID = $_POST['StudentID'];
-        $command = "delete from TBL_students where StudentID='$ID'";
-        if(mysqli_query($conn,$command)){
-            header('Location: Students.php');
+        if(isset($_POST['DeleteStudent'])){
+            $conn =  Opencon();
+            $ID = $_POST['StudentID'];
+            $command = "delete from TBL_students where StudentID='$ID'";
+            if(mysqli_query($conn,$command)){
+                header('Location: Students.php');
+            }
+            mysqli_close($conn);
         }
-        mysqli_close($conn);
-    }
+        if(isset($_POST['UpdateStudent'])){
+            $conn =  Opencon();
+            $StudentID = $_POST['Update_StudentID'];
+            $StudentName = $_POST['Update_StudentName'];
+            $YearSection = $_POST['Update_YearSection'];
+            $command = "update TBL_students set StudentName='$StudentName', YearSection='$YearSection' where StudentID = '$StudentID'";
+            if(mysqli_query($conn,$command)){
+                header('Location: Students.php');
+            }
+            mysqli_close($conn);
+        }
    }
 
 ?>
