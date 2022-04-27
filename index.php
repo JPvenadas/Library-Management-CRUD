@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
  <?php include('Books/header.php') ?>
+ <?php require("Books/editModal.php")?>
  <div class="container p-4">
  <?php include('Books/modal.php')?>
  <table class="table">
@@ -32,9 +33,9 @@
       <td><?php echo $book['Stocks']?></td>
       <td style="display:flex; flex-direction: row">
         
-      
-      <Button class="btn text-light bg-primary" data-bs-toggle="modal" data-bs-target="#editBook" data-bs-whatever="@mdo">
-        <i class="bi bi-trash2-fill"></i>
+      <Button class="btn text-light bg-primary" data-bs-toggle="modal" data-bs-target="#editBook" data-bs-whatever="@mdo"
+      onclick="attachcontent('<?php echo $book['BookID']?>','<?php echo $book['BookName']?>','<?php echo $book['Author']?>','<?php echo $book['Stocks']?>')">
+      <i class="bi bi-pen-fill"></i>
       </Button>
 
         <!-- This is the delete Button -->
@@ -52,5 +53,14 @@
 </table>
 
 </div>
+
+<script>
+  const attachcontent= (id, Name, Author, Stocks) => {
+    document.getElementById('Update_BookID').value = id
+    document.getElementById('Update_BookName').value = Name
+    document.getElementById('Update_Author').value = Author
+    document.getElementById('Update_Stocks').value = Stocks
+  }
+</script>
 </body>
 </html>

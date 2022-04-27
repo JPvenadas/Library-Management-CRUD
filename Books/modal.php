@@ -11,16 +11,16 @@
       <div class="modal-body">
         <form action="index.php" method="POST">
           <div class="mb-3">
-            <input name="BookName" placeholder="Book Name" type="text" class="form-control" id="BookName">
+            <input required name="BookName" placeholder="Book Name" type="text" class="form-control" id="BookName">
           </div>
           <div class="mb-3">
-            <input name="Author" placeholder="Author" type="text" class="form-control" id="Author">
+            <input required name="Author" placeholder="Author" type="text" class="form-control" id="Author">
           </div>
           <div class="mb-3">
-            <input name="Stocks"  placeholder="Stocks" type="number" class="form-control" id="Stocks">
+            <input required name="Stocks"  placeholder="Stocks" type="number" class="form-control" id="Stocks">
           </div>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <input name="Add" type="submit" value="Save" class="btn btn-primary">
+          <input required name="Add" type="submit" value="Save" class="btn btn-primary">
         </form>
       </div>
       <div class="modal-footer">
