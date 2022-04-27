@@ -34,4 +34,18 @@
        }
    }
    
+   Function UpdateBook(){
+    if(isset($_POST['Update'])){
+        $conn =  Opencon();
+        $bookID = $_POST['Update_BookID'];
+        $bookname = $_POST['Update_BookName'];
+        $author = $_POST['Update_Author'];
+        $stocks = $_POST['Update_Stocks'];
+        $command = "update TBL_books set BookName='$bookname', Author='$author', Stocks='$stocks' where BookID = '$bookID'";
+        if(mysqli_query($conn,$command)){
+            header('Location: index.php');
+        }
+        mysqli_close($conn);
+       }
+   }
 ?>
