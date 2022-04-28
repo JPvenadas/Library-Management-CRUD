@@ -1,5 +1,7 @@
 <?php
-
+  require("../Functions.php");
+  $BorrowTransacs = readTransactions('Borrowing');
+  $ReturnTransacs = readTransactions('Returning');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +17,8 @@
     </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Hello</div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">there</div>
+    <?php include("Borrowing.php")?>
+    <?php include("Returning.php")?>
     </div>
  </div>
 </body>

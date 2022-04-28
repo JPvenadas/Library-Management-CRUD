@@ -40,11 +40,11 @@
         }
         if(isset($_POST['Update'])){
             $conn =  Opencon();
-            $StudentID = $_POST['Update_StudentID'];
-            $StudentName = $_POST['Update_StudentName'];
-            $YearSection = $_POST['Update_YearSection'];
-            $stocks = $_POST['Update_Stocks'];
-            $command = "update TBL_books set StudentName='$StudentName', YearSection='$YearSection', Stocks='$stocks' where StudentID = '$StudentID'";
+            $BookID = $_POST['Update_BookID'];
+            $BookName = $_POST['Update_BookName'];
+            $Author = $_POST['Update_Author'];
+            $Stocks = $_POST['Update_Stocks'];
+            $command = "update TBL_books set BookName='$BookName', Author='$Author', Stocks='$Stocks' where BookID = '$BookID'";
             if(mysqli_query($conn,$command)){
                 header('Location: index.php');
             }
@@ -91,6 +91,20 @@
             }
             mysqli_close($conn);
         }
+   }
+
+   Function readTransactions($type){
+    $conn = Opencon();
+    $command = "select TransactionsID, StudentName, BookName, TransactionType, Date
+                from TBL_transactions as T inner join TBL_students as S
+                on T.StudentID = S.StudentID
+                inner join TBL_books as B
+                on T.BookID = B.BookID
+                where TransactionType = '$type'";
+    $result = mysqli_query($conn, $command);
+    $Transactions = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    mysqli_close($conn);
+    return $Transactions;
    }
 
 ?>

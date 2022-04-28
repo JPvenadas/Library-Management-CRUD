@@ -1,4 +1,3 @@
-
 <button type="button" class=" mb-3 btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBook" data-bs-whatever="@mdo">+ Add Book</button>
 
 <div class="modal fade" id="addBook" tabindex="-1" aria-labelledby="addBookLabel" aria-hidden="true">
