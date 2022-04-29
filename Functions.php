@@ -95,7 +95,7 @@
 
    Function readTransactions($type){
     $conn = Opencon();
-    $command = "select TransactionsID, StudentName, BookName, TransactionType, Date
+    $command = "select TransactionsID, B.BookID, StudentName, BookName, TransactionType, Date
                 from TBL_transactions as T inner join TBL_students as S
                 on T.StudentID = S.StudentID
                 inner join TBL_books as B
@@ -140,10 +140,11 @@
     }
     if(isset($_POST['Return'])){
         $conn = Opencon();
-        $ID = $_POST['TransactionsID'];
-        UpdateStocks($ID, "Increment");
+        $TransacID = $_POST['TransactionsID'];
+        $BookID = $_POST['BookID'];
+        UpdateStocks($BookID, "Increment");
         $date = date("Y/m/d");
-        $command = "update TBL_transactions set TransactionType = 'Returning', Date = '$date' where TransactionsId = '$ID'";
+        $command = "update TBL_transactions set TransactionType = 'Returning', Date = '$date' where TransactionsId = '$TransacID'";
         if(mysqli_query($conn,$command)){
             header('Location: transactions.php');
         }
@@ -151,9 +152,10 @@
     }
     if(isset($_POST['DeleteTransaction'])){
         $conn = Opencon();
-        $ID = $_POST['TransactionsID'];
-        UpdateStocks($ID, "Increment");
-        $command = "delete from TBL_transactions where TransactionsID = '$ID'";
+        $TransacID = $_POST['TransactionsID'];
+        $BookID = $_POST['BookID'];
+        UpdateStocks($BookID, "Increment");
+        $command = "delete from TBL_transactions where TransactionsID = '$TransacID'";
         if(mysqli_query($conn,$command)){
             header('Location: transactions.php');
         }

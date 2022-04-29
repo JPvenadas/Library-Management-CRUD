@@ -25,6 +25,7 @@
 
         <!-- This is the delete Button -->
         <Form action="transactions.php" method="POST">
+          <input type="hidden" name="BookID" value="None">
           <input type="hidden" name="TransactionsID" value="<?php echo $Transac['TransactionsID']?>">
           <Button type="submit" name="DeleteTransaction" class="btn mx-1 text-light bg-danger">
             <i class="bi bi-trash2-fill"></i>
