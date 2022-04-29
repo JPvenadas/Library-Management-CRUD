@@ -10,6 +10,7 @@
 <html lang="en">
 
  <?php include('Header.php') ?>
+ <?php include('editmodal.php')?>
  <div class="container my-4">
     <div class="mb-1" style="display: flex; justify-content: space-between">
     <ul class="nav nav-pills" id="pills-tab" role="tablist">

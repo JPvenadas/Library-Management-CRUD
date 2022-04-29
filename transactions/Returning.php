@@ -18,7 +18,7 @@
       <td><?php echo $Transac['Date']?></td>
       <td style="display:flex; flex-direction: row">
         
-      <Button class="btn text-light bg-primary" data-bs-toggle="modal" data-bs-target="#editBook" data-bs-whatever="@mdo"
+      <Button class="btn text-light bg-primary" data-bs-toggle="modal" data-bs-target="#editTransaction" data-bs-whatever="@mdo"
       onclick="">
       <i class="bi bi-pen-fill"></i>
       </Button>
