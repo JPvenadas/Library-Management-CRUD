@@ -129,6 +129,15 @@
         }
         mysqli_close($conn);
     }
+    if(isset($_POST['DeleteTransaction'])){
+        $conn = Opencon();
+        $ID = $_POST['TransactionsID'];
+        $command = "delete from TBL_transactions where TransactionsID = '$ID'";
+        if(mysqli_query($conn,$command)){
+            header('Location: transactions.php');
+        }
+        mysqli_close($conn);
+    }
    }
 
 ?>
