@@ -106,11 +106,30 @@
     mysqli_close($conn);
     return $Transactions;
    }
+
+   Function UpdateStocks($ID, $Operation){
+       $conn = Opencon();
+       $command = "select Stocks from TBL_books where BookID = '$ID'";
+       $result = mysqli_fetch_row(mysqli_query($conn, $command));
+       $stocks = $result[0];
+       mysqli_close($conn);
+       if($Operation == "Increment"){
+        $stocks++;
+       }
+       elseif($Operation == "Decrement"){
+        $stocks--;
+       }
+       $conn2 = Opencon();
+       $command2 = "update TBL_books set Stocks = '$stocks' where BookID = '$ID'";
+       mysqli_query($conn2, $command2);
+       mysqli_close($conn2);
+   }
    Function TransactionChanges(){
     if(isset($_POST['AddTransaction'])){
         $conn = Opencon();
         $StudentID = $_POST['StudentID'];
         $BookID = $_POST['BookID'];
+        UpdateStocks($BookID, "Decrement");
         $Date = $_POST['Date'];
         $FormattedDate = date("Y/m/d", strtotime($Date));
         $command = "insert into TBL_transactions(StudentID, BookID, Date, TransactionType) values('$StudentID','$BookID','$FormattedDate', 'Borrowing')";
@@ -122,6 +141,7 @@
     if(isset($_POST['Return'])){
         $conn = Opencon();
         $ID = $_POST['TransactionsID'];
+        UpdateStocks($ID, "Increment");
         $date = date("Y/m/d");
         $command = "update TBL_transactions set TransactionType = 'Returning', Date = '$date' where TransactionsId = '$ID'";
         if(mysqli_query($conn,$command)){
@@ -132,6 +152,7 @@
     if(isset($_POST['DeleteTransaction'])){
         $conn = Opencon();
         $ID = $_POST['TransactionsID'];
+        UpdateStocks($ID, "Increment");
         $command = "delete from TBL_transactions where TransactionsID = '$ID'";
         if(mysqli_query($conn,$command)){
             header('Location: transactions.php');

@@ -4,7 +4,7 @@
   $BorrowTransacs = readTransactions('Borrowing');
   $ReturnTransacs = readTransactions('Returning');
   $students = readStudents();
-  $books = readBooks()
+  $books = readBooks();
 ?>
 <!DOCTYPE html>
 <html lang="en">
