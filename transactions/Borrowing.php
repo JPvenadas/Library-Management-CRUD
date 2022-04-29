@@ -30,6 +30,12 @@
             <i class="bi bi-trash2-fill"></i>
           </Button>
         </Form>
+        <Form action="index.php" method="POST">
+          <input type="hidden" name="BookID" value="">
+          <Button type="submit" name="Delete" class="btn mx-1 text-light bg-success">
+          <i class="bi bi-journal-bookmark-fill"></i> Return
+          </Button>
+        </Form>
 
       </td>
     </tr>
