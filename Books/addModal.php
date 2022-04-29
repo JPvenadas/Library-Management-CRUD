@@ -10,13 +10,13 @@
       <div class="modal-body">
         <form action="index.php" method="POST">
           <div class="mb-3">
-            <input required name="BookName" placeholder="Book Name" type="text" class="form-control" id="BookName">
+            <input required name="BookName" placeholder="Book Name" type="text" class="form-control" id="BookName" autocomplete="off">
           </div>
           <div class="mb-3">
-            <input required name="Author" placeholder="Author" type="text" class="form-control" id="Author">
+            <input required name="Author" placeholder="Author" type="text" class="form-control" id="Author" autocomplete="off">
           </div>
           <div class="mb-3">
-            <input required name="Stocks"  placeholder="Stocks" type="number" class="form-control" id="Stocks">
+            <input required name="Stocks"  placeholder="Stocks" type="number" class="form-control" id="Stocks" autocomplete="off">
           </div>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <input required name="Add" type="submit" value="Save" class="btn btn-primary">

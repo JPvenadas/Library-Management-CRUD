@@ -11,10 +11,10 @@
       <div class="modal-body">
         <form action="Students.php" method="POST">
           <div class="mb-3">
-            <input required name="StudentName" placeholder="Student fullName" type="text" class="form-control" id="StudentName">
+            <input required name="StudentName" placeholder="Student fullName" type="text" class="form-control" id="StudentName" autocomplete="off">
           </div>
           <div class="mb-3">
-            <input required name="YearSection" placeholder="Year Section" type="text" class="form-control" id="YearSection">
+            <input required name="YearSection" placeholder="Year Section" type="text" class="form-control" id="YearSection" autocomplete="off">
           </div>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <input required name="AddStudent" type="submit" value="Save" class="btn btn-primary">

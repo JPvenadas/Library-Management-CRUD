@@ -20,10 +20,10 @@
     Function BookChanges(){
         if(isset($_POST['Add'])){
             $conn =  Opencon();
-            $StudentName = $_POST['StudentName'];
-            $YearSection = $_POST['YearSection'];
+            $BookName = $_POST['BookName'];
+            $Author = $_POST['Author'];
             $stocks = $_POST['Stocks'];
-            $command = "insert into TBL_books(StudentName, YearSection, Stocks) values('$StudentName','$YearSection','$stocks')";
+            $command = "insert into TBL_books(BookName, Author, Stocks) values('$BookName','$Author','$stocks')";
             if(mysqli_query($conn,$command)){
                 header('Location: index.php');
             }
@@ -31,8 +31,8 @@
         }
         if(isset($_POST['Delete'])){
             $conn =  Opencon();
-            $ID = $_POST['StudentID'];
-            $command = "delete from TBL_books where StudentID='$ID'";
+            $ID = $_POST['BookID'];
+            $command = "delete from TBL_books where BookID='$ID'";
             if(mysqli_query($conn,$command)){
                 header('Location: index.php');
             }

@@ -37,7 +37,7 @@
 
         <!-- This is the delete Button -->
         <Form action="Students.php" method="POST">
-          <input type="hidden" name="tudentID" value="<?php echo $student['StudentID']?>">
+          <input type="hidden" name="StudentID" value="<?php echo $student['StudentID']?>">
           <Button type="submit" name="DeleteStudent" class="btn mx-1 text-light bg-danger">
             <i class="bi bi-trash2-fill"></i>
           </Button>
