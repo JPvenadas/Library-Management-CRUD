@@ -25,14 +25,15 @@
 
         <!-- This is the delete Button -->
         <Form action="index.php" method="POST">
-          <input type="hidden" name="BookID" value="">
-          <Button type="submit" name="Delete" class="btn mx-1 text-light bg-danger">
+          <input type="hidden" name="BookID" value="<?php echo $Transac['TransactionsID']?>">
+          <Button type="submit" name="DeleteTransaction" class="btn mx-1 text-light bg-danger">
             <i class="bi bi-trash2-fill"></i>
           </Button>
         </Form>
-        <Form action="index.php" method="POST">
-          <input type="hidden" name="BookID" value="">
-          <Button type="submit" name="Delete" class="btn mx-1 text-light bg-success">
+
+        <Form action="transactions.php" method="POST">
+          <input type="hidden" name="TransactionsID" value="<?php echo $Transac['TransactionsID']?>">
+          <Button type="submit" name="Return" class="btn mx-1 text-light bg-success">
           <i class="bi bi-journal-bookmark-fill"></i> Return
           </Button>
         </Form>

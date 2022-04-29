@@ -106,5 +106,29 @@
     mysqli_close($conn);
     return $Transactions;
    }
+   Function TransactionChanges(){
+    if(isset($_POST['AddTransaction'])){
+        $conn = Opencon();
+        $StudentID = $_POST['StudentID'];
+        $BookID = $_POST['BookID'];
+        $Date = $_POST['Date'];
+        $FormattedDate = date("Y/m/d", strtotime($Date));
+        $command = "insert into TBL_transactions(StudentID, BookID, Date, TransactionType) values('$StudentID','$BookID','$FormattedDate', 'Borrowing')";
+        if(mysqli_query($conn,$command)){
+            header('Location: transactions.php');
+        }
+        mysqli_close($conn);
+    }
+    if(isset($_POST['Return'])){
+        $conn = Opencon();
+        $ID = $_POST['TransactionsID'];
+        $date = date("Y/m/d");
+        $command = "update TBL_transactions set TransactionType = 'Returning', Date = '$date' where TransactionsId = '$ID'";
+        if(mysqli_query($conn,$command)){
+            header('Location: transactions.php');
+        }
+        mysqli_close($conn);
+    }
+   }
 
 ?>

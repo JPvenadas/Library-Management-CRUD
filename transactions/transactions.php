@@ -1,5 +1,6 @@
 <?php
   require("../Functions.php");
+  TransactionChanges();
   $BorrowTransacs = readTransactions('Borrowing');
   $ReturnTransacs = readTransactions('Returning');
   $students = readStudents();
